@@ -1,0 +1,278 @@
+<!-- c:\Work Material\Bimatrix\index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIMATRIX</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-bim">BIM</span><span class="logo-atrix">ATRIX</span>
+            </div>
+            <nav id="navbar">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to <span class="logo-bim">BIM</span><span class="logo-atrix">ATRIX</span></h1>
+            <p>Transforming the built environment through intelligent BIM solutions and cutting-edge digital construction technology.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">Our Services</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+        <div class="hero-graphic">
+            <div class="cube-wrapper">
+                <div class="cube">
+                    <div class="face front"></div>
+                    <div class="face back"></div>
+                    <div class="face left"></div>
+                    <div class="face right"></div>
+                    <div class="face top"></div>
+                    <div class="face bottom"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BANNER -->
+    <section class="stats-banner">
+        <div class="stat-item" data-count="250">
+            <h3 class="counter">0</h3>
+            <p>Projects Completed</p>
+        </div>
+        <div class="stat-item" data-count="85">
+            <h3 class="counter">0</h3>
+            <p>Happy Clients</p>
+        </div>
+        <div class="stat-item" data-count="12">
+            <h3 class="counter">0</h3>
+            <p>Years Experience</p>
+        </div>
+        <div class="stat-item" data-count="40">
+            <h3 class="counter">0</h3>
+            <p>Team Members</p>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+        <div class="section-container">
+            <div class="about-text">
+                <span class="section-tag">Who We Are</span>
+                <h2 class="section-title">Building Information <br>Modelling Experts</h2>
+                <p>BIMATRIX is a leading BIM consultancy delivering innovative digital solutions for the construction and infrastructure sector. We bridge the gap between design intent and physical delivery.</p>
+                <p>Our team of certified BIM professionals brings together expertise in architecture, engineering, and construction technology to provide a full spectrum of BIM management services.</p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">&#9670;</div>
+                        <span>ISO 19650 Compliant</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">&#9670;</div>
+                        <span>Revit & Navisworks Experts</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">&#9670;</div>
+                        <span>Full Project Lifecycle Support</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">&#9670;</div>
+                        <span>Clash Detection & Resolution</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="image-card">
+                    <div class="image-placeholder">
+                        <div class="grid-graphic">
+                            <div class="grid-line h"></div>
+                            <div class="grid-line h"></div>
+                            <div class="grid-line h"></div>
+                            <div class="grid-line v"></div>
+                            <div class="grid-line v"></div>
+                            <div class="grid-line v"></div>
+                            <div class="dot" style="top:30%;left:30%"></div>
+                            <div class="dot" style="top:30%;left:60%"></div>
+                            <div class="dot" style="top:60%;left:30%"></div>
+                            <div class="dot" style="top:60%;left:60%"></div>
+                            <div class="dot highlight" style="top:45%;left:45%"></div>
+                        </div>
+                        <p>Digital Twin Visualisation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services">
+        <div class="section-container">
+            <span class="section-tag center">What We Offer</span>
+            <h2 class="section-title center">Our Core Services</h2>
+            <p class="section-subtitle">Comprehensive BIM services tailored to your project needs</p>
+            <div class="services-grid" id="services-grid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="projects">
+        <div class="section-container">
+            <span class="section-tag center">Our Work</span>
+            <h2 class="section-title center">Featured Projects</h2>
+            <div class="filter-buttons" id="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="residential">Residential</button>
+                <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+            </div>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="section-container">
+            <span class="section-tag center">Client Feedback</span>
+            <h2 class="section-title center">What Our Clients Say</h2>
+            <div class="testimonials-wrapper" id="testimonials-wrapper">
+                <!-- Populated by JS -->
+            </div>
+            <div class="testimonial-dots" id="testimonial-dots"></div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <div class="section-container">
+            <div class="contact-info">
+                <span class="section-tag">Reach Out</span>
+                <h2 class="section-title">Let's Work Together</h2>
+                <p>Ready to elevate your project with intelligent BIM solutions? Contact our team today.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">&#9993;</div>
+                        <span>info@bimatrix.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">&#9742;</div>
+                        <span>+44 (0) 20 1234 5678</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">&#9679;</div>
+                        <span>123 Innovation Way, London, UK</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-wrapper">
+                <form id="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fname">First Name</label>
+                            <input type="text" id="fname" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lname">Last Name</label>
+                            <input type="text" id="lname" placeholder="Doe" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service">
+                            <option value="">Select a service...</option>
+                            <option>BIM Management</option>
+                            <option>Clash Detection</option>
+                            <option>4D/5D BIM</option>
+                            <option>BIM Training</option>
+                            <option>Digital Twin</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="4" placeholder="Tell us about your project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary full-width">Send Message</button>
+                    <div id="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <span class="logo-bim">BIM</span><span class="logo-atrix">ATRIX</span>
+                </div>
+                <p>Transforming construction through intelligent digital delivery.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">BIM Management</a></li>
+                    <li><a href="#services">Clash Detection</a></li>
+                    <li><a href="#services">4D/5D BIM</a></li>
+                    <li><a href="#services">BIM Training</a></li>
+                    <li><a href="#services">Digital Twin</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Stay Updated</h4>
+                <p>Subscribe to our newsletter for the latest BIM insights.</p>
+                <div class="newsletter-form">
+                    <input type="email" id="newsletter-email" placeholder="Your email">
+                    <button id="newsletter-btn">&#10148;</button>
+                </div>
+                <div id="newsletter-msg"></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> BIMATRIX. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="scroll-top" title="Back to top">&#8679;</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
