@@ -1,278 +1,492 @@
-<!-- c:\Work Material\Bimatrix\index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIMATRIX</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BIMATRIX Technical Services LLC</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header id="main-header">
-        <div class="header-container">
-            <div class="logo">
-                <span class="logo-bim">BIM</span><span class="logo-atrix">ATRIX</span>
-            </div>
-            <nav id="navbar">
-                <ul>
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+  <!-- HEADER / NAV -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <img src="images/logo.png" alt="Bimatrix logo" class="logo-img" />
+        <div class="logo-text">
+          <span class="logo-bim">BIM</span><span class="logo-atrix">ATRIX</span>
+          <span class="logo-sub">TECHNICAL SERVICES LLC</span>
         </div>
-    </header>
+      </a>
+
+      <nav class="nav-main" id="nav-main">
+        <ul class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li class="has-dropdown">
+            <a href="#services">Services <span class="chevron">&#8964;</span></a>
+            <ul class="dropdown">
+              <li><a href="#services">BIM Services</a></li>
+              <li><a href="#modelling">3D Model Development</a></li>
+              <li><a href="#mep">MEP Coordination</a></li>
+              <li><a href="#benefits">Benefits of BIM</a></li>
+            </ul>
+          </li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary nav-cta">Get in Touch</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
 
     <!-- HERO -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Welcome to <span class="logo-bim">BIM</span><span class="logo-atrix">ATRIX</span></h1>
-            <p>Transforming the built environment through intelligent BIM solutions and cutting-edge digital construction technology.</p>
-            <div class="hero-buttons">
-                <a href="#services" class="btn btn-primary">Our Services</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-            </div>
+    <section class="hero" id="home">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Building Information Modelling</p>
+        <h1 class="hero-title">One Model.<br /><em>One Vision.</em></h1>
+        <p class="hero-desc">An emerging BIM consultancy and technology solutions provider dedicated to transforming the built environment across the UAE and GCC.</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-primary">Explore Services</a>
+          <a href="#contact" class="btn btn-outline">Contact Us</a>
         </div>
-        <div class="hero-graphic">
-            <div class="cube-wrapper">
-                <div class="cube">
-                    <div class="face front"></div>
-                    <div class="face back"></div>
-                    <div class="face left"></div>
-                    <div class="face right"></div>
-                    <div class="face top"></div>
-                    <div class="face bottom"></div>
-                </div>
-            </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">6+</span>
+            <span class="stat-label">Ongoing Projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">UAE &amp; GCC</span>
+            <span class="stat-label">Regional Reach</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">360°</span>
+            <span class="stat-label">BIM Solutions</span>
+          </div>
         </div>
-    </section>
-
-    <!-- STATS BANNER -->
-    <section class="stats-banner">
-        <div class="stat-item" data-count="250">
-            <h3 class="counter">0</h3>
-            <p>Projects Completed</p>
+      </div>
+      <div class="hero-visual">
+        <div class="hex-cluster">
+          <div class="hex hex-1"></div>
+          <div class="hex hex-2"></div>
+          <div class="hex hex-3"></div>
+          <div class="hex hex-4"></div>
         </div>
-        <div class="stat-item" data-count="85">
-            <h3 class="counter">0</h3>
-            <p>Happy Clients</p>
-        </div>
-        <div class="stat-item" data-count="12">
-            <h3 class="counter">0</h3>
-            <p>Years Experience</p>
-        </div>
-        <div class="stat-item" data-count="40">
-            <h3 class="counter">0</h3>
-            <p>Team Members</p>
-        </div>
+      </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="about">
-        <div class="section-container">
-            <div class="about-text">
-                <span class="section-tag">Who We Are</span>
-                <h2 class="section-title">Building Information <br>Modelling Experts</h2>
-                <p>BIMATRIX is a leading BIM consultancy delivering innovative digital solutions for the construction and infrastructure sector. We bridge the gap between design intent and physical delivery.</p>
-                <p>Our team of certified BIM professionals brings together expertise in architecture, engineering, and construction technology to provide a full spectrum of BIM management services.</p>
-                <div class="about-features">
-                    <div class="feature-item">
-                        <div class="feature-icon">&#9670;</div>
-                        <span>ISO 19650 Compliant</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">&#9670;</div>
-                        <span>Revit & Navisworks Experts</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">&#9670;</div>
-                        <span>Full Project Lifecycle Support</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">&#9670;</div>
-                        <span>Clash Detection & Resolution</span>
-                    </div>
-                </div>
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text">
+            <span class="section-label">About Us</span>
+            <h2 class="section-title"><span class="accent-bim">BIM</span><span class="accent-atrix">ATRIX</span> is an emerging BIM consultancy</h2>
+            <p>A technology solutions provider dedicated to transforming the built environment across the <strong>United Arab Emirates and the Gulf Cooperation Council (GCC)</strong>.</p>
+            <p>We specialize in delivering advanced BIM services that empower architects, engineers, contractors, and owners to optimize design, reduce risk, improve project coordination, and enhance lifecycle asset management.</p>
+            <p>With deep local understanding and global best practices, we support public and private sector clients across commercial, infrastructure, industrial, residential, and hospitality sectors.</p>
+            <a href="#services" class="btn btn-primary mt-1">Our Services</a>
+          </div>
+          <div class="about-cards">
+            <div class="mvv-card">
+              <div class="mvv-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              </div>
+              <h3>Mission</h3>
+              <p>To enable smarter, more efficient construction and operations through digital innovation — bridging technology and industry expertise to deliver measurable value on every project.</p>
             </div>
-            <div class="about-image">
-                <div class="image-card">
-                    <div class="image-placeholder">
-                        <div class="grid-graphic">
-                            <div class="grid-line h"></div>
-                            <div class="grid-line h"></div>
-                            <div class="grid-line h"></div>
-                            <div class="grid-line v"></div>
-                            <div class="grid-line v"></div>
-                            <div class="grid-line v"></div>
-                            <div class="dot" style="top:30%;left:30%"></div>
-                            <div class="dot" style="top:30%;left:60%"></div>
-                            <div class="dot" style="top:60%;left:30%"></div>
-                            <div class="dot" style="top:60%;left:60%"></div>
-                            <div class="dot highlight" style="top:45%;left:45%"></div>
-                        </div>
-                        <p>Digital Twin Visualisation</p>
-                    </div>
-                </div>
+            <div class="mvv-card accent">
+              <div class="mvv-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <h3>Vision</h3>
+              <p>To empower AEC stakeholders globally with affordable BIM and construction documentation services that reduce risk, improve collaboration, and ensure buildable outcomes.</p>
             </div>
+            <div class="mvv-card">
+              <div class="mvv-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <h3>Values</h3>
+              <p>To deliver smart, coordinated BIM solutions for the global AEC industry, making Virtual Design &amp; Construction accessible to all.</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- SERVICES -->
-    <section id="services" class="services">
-        <div class="section-container">
-            <span class="section-tag center">What We Offer</span>
-            <h2 class="section-title center">Our Core Services</h2>
-            <p class="section-subtitle">Comprehensive BIM services tailored to your project needs</p>
-            <div class="services-grid" id="services-grid">
-                <!-- Populated by JS -->
-            </div>
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">What We Do</span>
+          <h2 class="section-title">BIM Services</h2>
+          <p class="section-desc">From pre-bid estimation to lifecycle facility management, our end-to-end BIM solutions cover every phase of your project.</p>
         </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="6" width="36" height="36" rx="4" stroke="currentColor" stroke-width="2.5"/><path d="M16 32l6-8 5 6 4-5 5 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="service-phase">BID</div>
+            <h3>Bid & Estimation</h3>
+            <p>Helps contractors and developers submit competitive, risk-controlled bids in UAE/GCC tender environments with 4D and 5D BIM simulations.</p>
+            <ul class="service-list">
+              <li>Pre-Bid Estimation</li>
+              <li>4D/5D Simulation</li>
+            </ul>
+          </div>
+
+          <div class="service-card featured">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M8 38V16l16-8 16 8v22l-16 8-16-8z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M24 8v30M8 16l16 8 16-8" stroke="currentColor" stroke-width="2.5"/></svg>
+            </div>
+            <div class="service-phase">PRE-CONSTRUCTION</div>
+            <h3>Pre-Construction BIM</h3>
+            <p>All BIM-driven activities carried out before construction starts, helping clients, consultants, and contractors reduce risk and control cost.</p>
+            <ul class="service-list">
+              <li>3D Modelling &amp; Clash Coordination</li>
+              <li>Constructability Review</li>
+              <li>Value Engineering</li>
+              <li>Quantity Take-off</li>
+              <li>Construction Drawings &amp; Detailing</li>
+              <li>Digital Prefabrication</li>
+            </ul>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2.5"/><path d="M24 14v10l6 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="service-phase">OPERATIONS</div>
+            <h3>BIM Operations</h3>
+            <p>Using the as-built BIM model to support facility operations, maintenance, and asset management throughout the building lifecycle.</p>
+            <ul class="service-list">
+              <li>As-Built Updates</li>
+              <li>Facilities Management</li>
+              <li>Scan To BIM</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D MODELLING -->
+    <section class="section modelling-section" id="modelling">
+      <div class="container">
+        <div class="section-header light">
+          <span class="section-label">Core Capability</span>
+          <h2 class="section-title">BIM 3D Model Development</h2>
+          <p class="section-desc">We develop intelligent, data-rich 3D BIM models that accurately represent architectural, structural, and MEP systems across the UAE and GCC.</p>
+        </div>
+
+        <div class="models-grid">
+          <div class="model-item"><div class="model-icon arch"></div><h4>Architectural Model</h4></div>
+          <div class="model-item"><div class="model-icon struct"></div><h4>Structural Model</h4></div>
+          <div class="model-item"><div class="model-icon mech"></div><h4>Mechanical Model</h4></div>
+          <div class="model-item"><div class="model-icon elec"></div><h4>Electrical Model</h4></div>
+          <div class="model-item"><div class="model-icon pd"></div><h4>P&amp;D Model</h4></div>
+          <div class="model-item"><div class="model-icon fed"></div><h4>Federated Model</h4></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEP -->
+    <section class="section mep-section" id="mep">
+      <div class="container">
+        <div class="mep-grid">
+          <div class="mep-block">
+            <span class="section-label">Coordination</span>
+            <h2 class="section-title">MEP Coordinated BIM Model</h2>
+            <p>A fully integrated 3D model where Mechanical, Electrical, and Plumbing systems are developed, reviewed, and coordinated with Architectural and Structural models to eliminate clashes and ensure smooth construction — critical for MEP-intensive UAE/GCC projects.</p>
+          </div>
+          <div class="mep-block">
+            <span class="section-label">Clash Detection</span>
+            <h2 class="section-title">Navisworks Clash-Free BIM Model</h2>
+            <p>A coordinated, federated model where Architectural, Structural, and MEP disciplines are tested, reviewed, and resolved using Autodesk Navisworks Manage, ensuring construction-ready, interference-free designs — essential for MEP-heavy UAE/GCC projects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="section benefits-section" id="benefits">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Why BIM</span>
+          <h2 class="section-title">Benefits of BIM</h2>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-item"><span class="benefit-num">01</span><p>Improves collaboration among all project stakeholders</p></div>
+          <div class="benefit-item"><span class="benefit-num">02</span><p>Clear 3D visualization of the building design</p></div>
+          <div class="benefit-item"><span class="benefit-num">03</span><p>Detects clashes before construction begins</p></div>
+          <div class="benefit-item"><span class="benefit-num">04</span><p>Reduces errors and rework on site</p></div>
+          <div class="benefit-item"><span class="benefit-num">05</span><p>Improves time planning and scheduling</p></div>
+          <div class="benefit-item"><span class="benefit-num">06</span><p>Enables accurate cost estimation and control</p></div>
+          <div class="benefit-item"><span class="benefit-num">07</span><p>Increases construction efficiency and productivity</p></div>
+          <div class="benefit-item"><span class="benefit-num">08</span><p>Supports sustainable and energy-efficient design</p></div>
+          <div class="benefit-item"><span class="benefit-num">09</span><p>Improves safety and risk management</p></div>
+          <div class="benefit-item"><span class="benefit-num">10</span><p>Effective facility management throughout the building lifecycle</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="section why-section" id="why-us">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Our Advantage</span>
+          <h2 class="section-title">Why Choose Us for BIM Services?</h2>
+          <p class="section-desc">Transforming your vision into reality with precision, innovation, and expertise.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card"><div class="why-num">1</div><h4>Expertise &amp; Experience</h4><p>Extensive experience delivering high-quality BIM solutions across a wide range of industries and project types.</p></div>
+          <div class="why-card"><div class="why-num">2</div><h4>State-of-the-Art Technology</h4><p>We utilize the latest BIM software and tools to ensure accuracy, efficiency, and innovative solutions.</p></div>
+          <div class="why-card"><div class="why-num">3</div><h4>Collaborative Approach</h4><p>We work closely with architects, engineers, contractors, and clients to ensure seamless integration across all project stages.</p></div>
+          <div class="why-card"><div class="why-num">4</div><h4>Time &amp; Cost Efficiency</h4><p>By using BIM, we minimize errors, reduce rework, and enhance project timelines, saving you time and money.</p></div>
+          <div class="why-card"><div class="why-num">5</div><h4>Improved Visualization</h4><p>Our 3D models provide clear, realistic visualizations, helping stakeholders make informed decisions.</p></div>
+          <div class="why-card"><div class="why-num">6</div><h4>Clash Detection</h4><p>We proactively identify and resolve design conflicts early, preventing costly delays and ensuring smooth execution.</p></div>
+          <div class="why-card"><div class="why-num">7</div><h4>Sustainability Focus</h4><p>We integrate sustainable practices into our BIM process, promoting energy efficiency and environmentally responsible designs.</p></div>
+          <div class="why-card"><div class="why-num">8</div><h4>End-to-End Solutions</h4><p>From conceptual design to post-construction management, comprehensive BIM services covering all project phases.</p></div>
+        </div>
+      </div>
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="projects">
-        <div class="section-container">
-            <span class="section-tag center">Our Work</span>
-            <h2 class="section-title center">Featured Projects</h2>
-            <div class="filter-buttons" id="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="commercial">Commercial</button>
-                <button class="filter-btn" data-filter="residential">Residential</button>
-                <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
-            </div>
-            <div class="projects-grid" id="projects-grid">
-                <!-- Populated by JS -->
-            </div>
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header light">
+          <span class="section-label">Portfolio</span>
+          <h2 class="section-title">Our Ongoing Projects</h2>
+          <p class="section-desc">Delivered BIM services in collaboration with leading consultants, contractors, and developers across the UAE and KSA.</p>
         </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="testimonials">
-        <div class="section-container">
-            <span class="section-tag center">Client Feedback</span>
-            <h2 class="section-title center">What Our Clients Say</h2>
-            <div class="testimonials-wrapper" id="testimonials-wrapper">
-                <!-- Populated by JS -->
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-img img-1"></div>
+            <div class="project-info">
+              <span class="project-tag">KSA</span>
+              <h4>Sindalah Island — NEOM</h4>
+              <p class="project-sub">BK Gulf · KSA</p>
             </div>
-            <div class="testimonial-dots" id="testimonial-dots"></div>
+          </div>
+          <div class="project-card">
+            <div class="project-img img-2"></div>
+            <div class="project-info">
+              <span class="project-tag">KSA</span>
+              <h4>Amalaa Marine Institute — Red Sea</h4>
+              <p class="project-sub">BK Gulf · KSA</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img img-3"></div>
+            <div class="project-info">
+              <span class="project-tag">KSA</span>
+              <h4>Shura Island — Red Sea</h4>
+              <p class="project-sub">BK Gulf · KSA</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img img-4"></div>
+            <div class="project-info">
+              <span class="project-tag">UAE</span>
+              <h4>Khazna Data Centre</h4>
+              <p class="project-sub">BK Gulf · UAE</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img img-5"></div>
+            <div class="project-info">
+              <span class="project-tag">UAE</span>
+              <h4>BVLGARI Light House</h4>
+              <p class="project-sub">BK Gulf · UAE</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img img-6"></div>
+            <div class="project-info">
+              <span class="project-tag">UAE</span>
+              <h4>Sweid One</h4>
+              <p class="project-sub">BK Gulf · UAE</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="contact">
-        <div class="section-container">
-            <div class="contact-info">
-                <span class="section-tag">Reach Out</span>
-                <h2 class="section-title">Let's Work Together</h2>
-                <p>Ready to elevate your project with intelligent BIM solutions? Contact our team today.</p>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-icon">&#9993;</div>
-                        <span>info@bimatrix.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">&#9742;</div>
-                        <span>+44 (0) 20 1234 5678</span>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">&#9679;</div>
-                        <span>123 Innovation Way, London, UK</span>
-                    </div>
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <span class="section-label">Get In Touch</span>
+            <h2 class="section-title">Connect With Us</h2>
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
                 </div>
+                <div>
+                  <p class="contact-label">Phone</p>
+                  <a href="tel:+971551122420">+971 55 1122420</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <p class="contact-label">Email</p>
+                  <a href="/cdn-cgi/l/email-protection#066f68606946646f6b6772746f7e286763"><span class="__cf_email__" data-cfemail="8ae3e4ece5cae8e3e7ebfef8e3f2a4ebef">[email&#160;protected]</span></a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <p class="contact-label">Address</p>
+                  <p>Office-705, Grand Al Attar Building,<br />Bank Street, Bur Dubai — Dubai, UAE<br />P.O Box - 26185</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+                </div>
+                <div>
+                  <p class="contact-label">Website</p>
+                  <a href="https://www.bimatrix.ae" target="_blank">www.bimatrix.ae</a>
+                </div>
+              </div>
             </div>
-            <div class="contact-form-wrapper">
-                <form id="contact-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="fname">First Name</label>
-                            <input type="text" id="fname" placeholder="John" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lname">Last Name</label>
-                            <input type="text" id="lname" placeholder="Doe" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="john@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Service Interested In</label>
-                        <select id="service">
-                            <option value="">Select a service...</option>
-                            <option>BIM Management</option>
-                            <option>Clash Detection</option>
-                            <option>4D/5D BIM</option>
-                            <option>BIM Training</option>
-                            <option>Digital Twin</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" rows="4" placeholder="Tell us about your project..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary full-width">Send Message</button>
-                    <div id="form-message"></div>
-                </form>
+          </div>
+
+          <form class="contact-form" onsubmit="handleForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="John" required />
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Smith" required />
+              </div>
             </div>
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="john@company.com" required />
+            </div>
+            <div class="form-group">
+              <label>Company</label>
+              <input type="text" placeholder="Your company name" />
+            </div>
+            <div class="form-group">
+              <label>Service Interest</label>
+              <select>
+                <option value="">Select a service...</option>
+                <option>3D BIM Modelling</option>
+                <option>MEP Coordination</option>
+                <option>Clash Detection</option>
+                <option>4D/5D Simulation</option>
+                <option>Facilities Management</option>
+                <option>Scan to BIM</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea rows="4" placeholder="Tell us about your project..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+            <div class="form-success" id="form-success">Thank you! We'll be in touch shortly.</div>
+          </form>
         </div>
+      </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <div class="logo">
-                    <span class="logo-bim">BIM</span><span class="logo-atrix">ATRIX</span>
-                </div>
-                <p>Transforming construction through intelligent digital delivery.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="#services">BIM Management</a></li>
-                    <li><a href="#services">Clash Detection</a></li>
-                    <li><a href="#services">4D/5D BIM</a></li>
-                    <li><a href="#services">BIM Training</a></li>
-                    <li><a href="#services">Digital Twin</a></li>
-                </ul>
-            </div>
-            <div class="footer-newsletter">
-                <h4>Stay Updated</h4>
-                <p>Subscribe to our newsletter for the latest BIM insights.</p>
-                <div class="newsletter-form">
-                    <input type="email" id="newsletter-email" placeholder="Your email">
-                    <button id="newsletter-btn">&#10148;</button>
-                </div>
-                <div id="newsletter-msg"></div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; <span id="year"></span> BIMATRIX. All rights reserved.</p>
-        </div>
-    </footer>
+  </main>
 
-    <div id="scroll-top" title="Back to top">&#8679;</div>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="logo footer-logo">
+              <span class="logo-bim">BIM</span><span class="logo-atrix">ATRIX</span>
+              <span class="logo-sub">TECHNICAL SERVICES LLC</span>
+            </div>
+            <p>One Model. One Vision. Transforming the built environment through digital innovation across the UAE and GCC.</p>
+            <p class="footer-tagline">www.bimatrix.ae</p>
+          </div>
+          <div class="footer-col">
+            <h5>Services</h5>
+            <ul>
+              <li><a href="#services">Bid & Estimation</a></li>
+              <li><a href="#services">Pre-Construction BIM</a></li>
+              <li><a href="#services">BIM Operations</a></li>
+              <li><a href="#modelling">3D Model Development</a></li>
+              <li><a href="#mep">MEP Coordination</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#why-us">Why Choose Us</a></li>
+              <li><a href="#benefits">Benefits of BIM</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Contact</h5>
+            <ul>
+              <li><a href="tel:+971551122420">+971 55 1122420</a></li>
+              <li><a href="/cdn-cgi/l/email-protection#dab3b4bcb59ab8b3b7bbaea8b3a2f4bbbf"><span class="__cf_email__" data-cfemail="5e373038311e3c37333f2a2c3726703f3b">[email&#160;protected]</span></a></li>
+              <li>Office-705, Grand Al Attar Building</li>
+              <li>Bank Street, Bur Dubai, UAE</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 BIMATRIX Technical Services LLC. All rights reserved.</p>
+        <p>Dubai, UAE &mdash; www.bimatrix.ae</p>
+      </div>
+    </div>
+  </footer>
 
-    <script src="script.js"></script>
+  <!-- FLOATING DARK MODE TOGGLE -->
+  <div class="theme-toggle-wrap" id="theme-toggle" role="button" tabindex="0" aria-label="Toggle dark mode">
+    <div class="toggle-thumb">
+      <!-- SUN: light mode — starburst design -->
+      <svg class="icon-light" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="3" fill="#ffffff"/>
+        <polygon points="12,2 13.2,5.5 11.8,5.5" fill="#ffffff"/>
+        <polygon points="12,22 13.2,18.5 11.8,18.5" fill="#ffffff"/>
+        <polygon points="2,12 5.5,10.8 5.5,13.2" fill="#ffffff"/>
+        <polygon points="22,12 18.5,10.8 18.5,13.2" fill="#ffffff"/>
+        <polygon points="4.93,4.93 7.3,7.8 5.5,7.8" fill="#ffffff"/>
+        <polygon points="19.07,4.93 18.5,7.8 16.7,7.8" fill="#ffffff"/>
+        <polygon points="4.93,19.07 5.5,16.2 7.3,16.2" fill="#ffffff"/>
+        <polygon points="19.07,19.07 16.7,16.2 18.5,16.2" fill="#ffffff"/>
+      </svg>
+      <!-- MOON: dark mode -->
+      <svg class="icon-dark" viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" fill="#1d2846" stroke="none"/>
+      </svg>
+    </div>
+  </div>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
