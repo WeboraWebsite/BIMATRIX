@@ -5,44 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BIMATRIX Technical Services LLC</title>
   <link rel="stylesheet" href="styles.css" />
+  <script>(function(){var t=localStorage.getItem('bimatrix-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
 </head>
 <body>
 
-  <!-- HEADER / NAV -->
-  <header class="site-header" id="site-header">
-    <div class="header-inner">
-      <a href="#" class="logo">
-        <img src="images/logo.png" alt="Bimatrix logo" class="logo-img" />
-        <div class="logo-text">
-          <span class="logo-bim">BIM</span><span class="logo-atrix">ATRIX</span>
-          <span class="logo-sub">TECHNICAL SERVICES LLC</span>
-        </div>
-      </a>
-
-      <nav class="nav-main" id="nav-main">
-        <ul class="nav-list">
-          <li><a href="#about">About</a></li>
-          <li class="has-dropdown">
-            <a href="#services">Services <span class="chevron">&#8964;</span></a>
-            <ul class="dropdown">
-              <li><a href="#services">BIM Services</a></li>
-              <li><a href="#modelling">3D Model Development</a></li>
-              <li><a href="#mep">MEP Coordination</a></li>
-              <li><a href="#benefits">Benefits of BIM</a></li>
-            </ul>
-          </li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#why-us">Why Us</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <a href="#contact" class="btn btn-primary nav-cta">Get in Touch</a>
-      </nav>
-
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+  <!-- Header, footer, and floating controls are injected by components.js -->
+  <script src="components.js"></script>
 
   <main>
 
@@ -179,23 +147,404 @@
     </section>
 
     <!-- 3D MODELLING -->
-    <section class="section modelling-section" id="modelling">
-      <div class="container">
-        <div class="section-header light">
-          <span class="section-label">Core Capability</span>
-          <h2 class="section-title">BIM 3D Model Development</h2>
-          <p class="section-desc">We develop intelligent, data-rich 3D BIM models that accurately represent architectural, structural, and MEP systems across the UAE and GCC.</p>
+    <section class="modelling-section" id="modelling">
+
+      <div class="ms-layout">
+
+        <!-- ══ LEFT: Full-height image viewer ══ -->
+        <div class="ms-viewer-col">
+          <div class="ms-viewer" id="ms-viewer">
+
+            <div class="ms-canvas">
+              <img class="ms-canvas-img" id="ms-base" src="images/architectural_model.png" alt="" loading="lazy" decoding="async" />
+              <img class="ms-canvas-img ms-canvas-mep" id="ms-mep" src="images/mechanical_model.png" alt="" loading="lazy" decoding="async" />
+            </div>
+
+            <div class="ms-viewer-badge">
+              <span class="ms-badge-dot"></span>
+              <span id="ms-badge-text">Architectural + Mechanical</span>
+            </div>
+
+            <div class="ms-viewer-foot">
+              <div class="ms-foot-item">
+                <span class="ms-foot-bar ms-foot-bar-base"></span>
+                <span class="ms-foot-label" id="ms-base-name">Architectural Model</span>
+                <div class="ms-slider-wrap">
+                  <input type="range" class="ms-slider ms-slider-base" id="ms-slider-base"
+                         min="0" max="100" step="10" value="20" />
+                  <span class="ms-foot-pct" id="ms-base-pct">20%</span>
+                </div>
+              </div>
+              <div class="ms-foot-item">
+                <span class="ms-foot-bar ms-foot-bar-mep"></span>
+                <span class="ms-foot-label" id="ms-mep-name">Mechanical Model</span>
+                <div class="ms-slider-wrap">
+                  <input type="range" class="ms-slider ms-slider-mep" id="ms-slider-mep"
+                         min="0" max="100" step="10" value="80" />
+                  <span class="ms-foot-pct" id="ms-mep-pct">80%</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="models-grid">
-          <div class="model-item"><div class="model-icon arch"></div><h4>Architectural Model</h4></div>
-          <div class="model-item"><div class="model-icon struct"></div><h4>Structural Model</h4></div>
-          <div class="model-item"><div class="model-icon mech"></div><h4>Mechanical Model</h4></div>
-          <div class="model-item"><div class="model-icon elec"></div><h4>Electrical Model</h4></div>
-          <div class="model-item"><div class="model-icon pd"></div><h4>P&amp;D Model</h4></div>
-          <div class="model-item"><div class="model-icon fed"></div><h4>Federated Model</h4></div>
-        </div>
-      </div>
+        <!-- ══ RIGHT: Controls panel ══ -->
+        <div class="ms-panel">
+
+          <div class="ms-panel-head">
+            <span class="ms-section-num">—&nbsp;03</span>
+            <span class="ms-eyebrow">Core Capability</span>
+            <h2 class="ms-title">BIM 3D<br/>Model<br/>Development</h2>
+            <p class="ms-desc">Intelligent, data-rich 3D models representing every building discipline — architectural, structural &amp; MEP — delivered across the UAE &amp; GCC.</p>
+          </div>
+
+          <div class="ms-rule"></div>
+
+          <div class="ms-control-block">
+            <div class="ms-control-label-row">
+              <p class="ms-control-label">MEP Overlay</p>
+              <button class="ms-auto-btn" id="ms-auto-btn" aria-label="Toggle auto-cycle" title="Toggle auto-cycle">
+                <span class="ms-auto-icon ms-auto-icon-play">
+                  <svg viewBox="0 0 16 16" fill="none" width="11" height="11"><polygon points="3,2 13,8 3,14" fill="currentColor"/></svg>
+                </span>
+                <span class="ms-auto-icon ms-auto-icon-pause" style="display:none">
+                  <svg viewBox="0 0 16 16" fill="none" width="11" height="11"><rect x="2" y="2" width="4" height="12" fill="currentColor"/><rect x="10" y="2" width="4" height="12" fill="currentColor"/></svg>
+                </span>
+                <span class="ms-auto-label" id="ms-auto-label">AUTO</span>
+              </button>
+            </div>
+            <div class="ms-mep-list" id="ms-mep-list">
+
+              <button class="ms-mep-btn active" data-mep="0">
+                <div class="ms-mep-icon">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="16" cy="16" r="4"/>
+                    <path d="M16 4v4M16 24v4M4 16h4M24 16h4"/>
+                    <path d="M7.76 7.76l2.83 2.83M21.41 21.41l2.83 2.83M21.41 10.59l2.83-2.83M7.76 24.24l2.83-2.83"/>
+                  </svg>
+                </div>
+                <span class="ms-mep-name">Mechanical</span>
+                <span class="ms-mep-sub">HVAC &amp; Ductwork</span>
+                <div class="ms-mep-track"><div class="ms-mep-fill" id="ms-fill-0"></div></div>
+              </button>
+
+              <button class="ms-mep-btn" data-mep="1">
+                <div class="ms-mep-icon">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 4L8 18h8l-2 10 14-16h-8l2-8z"/>
+                  </svg>
+                </div>
+                <span class="ms-mep-name">Electrical</span>
+                <span class="ms-mep-sub">LV &amp; Containment</span>
+                <div class="ms-mep-track"><div class="ms-mep-fill" id="ms-fill-1"></div></div>
+              </button>
+
+              <button class="ms-mep-btn" data-mep="2">
+                <div class="ms-mep-icon">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 4c0 0-8 9-8 16a8 8 0 0016 0c0-7-8-16-8-16z"/>
+                    <path d="M11 22a5 5 0 008-4"/>
+                  </svg>
+                </div>
+                <span class="ms-mep-name">Plumbing</span>
+                <span class="ms-mep-sub">Supply &amp; Drainage</span>
+                <div class="ms-mep-track"><div class="ms-mep-fill" id="ms-fill-2"></div></div>
+              </button>
+
+            </div>
+          </div>
+
+          <div class="ms-rule"></div>
+
+          <div class="ms-control-block">
+            <p class="ms-control-label">Base Layer</p>
+            <div class="ms-base-list" id="ms-base-list">
+
+              <button class="ms-base-btn active" data-base="0">
+                <div class="ms-base-icon">
+                  <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="6" y="14" width="28" height="22" rx="0"/>
+                    <path d="M2 14L20 4l18 10"/>
+                    <rect x="15" y="26" width="10" height="10"/>
+                    <rect x="9" y="18" width="6" height="6"/>
+                    <rect x="25" y="18" width="6" height="6"/>
+                  </svg>
+                </div>
+                <span class="ms-base-num">01</span>
+                <span class="ms-base-name">Architectural</span>
+                <span class="ms-base-sub">Layout &amp; Facades</span>
+              </button>
+
+              <button class="ms-base-btn" data-base="1">
+                <div class="ms-base-icon">
+                  <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 20l16-8 16 8-16 8-16-8z"/>
+                    <path d="M4 26l16 8 16-8"/>
+                    <path d="M4 14l16-8 16 8"/>
+                  </svg>
+                </div>
+                <span class="ms-base-num">02</span>
+                <span class="ms-base-name">Federated</span>
+                <span class="ms-base-sub">All Disciplines</span>
+              </button>
+
+              <button class="ms-base-btn" data-base="2">
+                <div class="ms-base-icon">
+                  <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="4" width="32" height="32"/>
+                    <line x1="4" y1="20" x2="36" y2="20"/>
+                    <line x1="20" y1="4" x2="20" y2="36"/>
+                    <rect x="4" y="4" width="10" height="10" fill="currentColor" opacity="0.15"/>
+                    <rect x="26" y="26" width="10" height="10" fill="currentColor" opacity="0.15"/>
+                  </svg>
+                </div>
+                <span class="ms-base-num">03</span>
+                <span class="ms-base-name">Structural</span>
+                <span class="ms-base-sub">Frame &amp; Slabs</span>
+              </button>
+
+            </div>
+          </div>
+
+        </div><!-- /ms-panel -->
+
+      </div><!-- /ms-layout -->
+
+      <script>
+      (function(){
+        const BASE = [
+          { name:'Architectural Model', short:'Architectural', img:'images/architectural_model.png' },
+          { name:'Federated Model',     short:'Federated',     img:'images/federated_model.png'     },
+          { name:'Structural Model',    short:'Structural',    img:'images/structural_model.png'     },
+        ];
+        const MEP = [
+          { name:'Mechanical Model',    short:'Mechanical', img:'images/mechanical_model.png' },
+          { name:'Electrical Model',    short:'Electrical', img:'images/electrical_model.png' },
+          { name:'Plumbing & Drainage', short:'Plumbing',   img:'images/pd_model.png'         },
+        ];
+
+        // ── Two-slot crossfade ────────────────────────────────────────────
+        // Each layer (base, mep) has two stacked <img> slots — A (front) and
+        // B (back). To switch: load new image into back at opacity 0, then
+        // simultaneously fade back → target and front → 0. Zero blink.
+        const canvas = document.querySelector('.ms-canvas');
+        canvas.innerHTML = ''; // clear original single imgs
+
+        const FADE = 750; // crossfade duration ms
+
+        function makeSlot(id, z) {
+          const img = document.createElement('img');
+          img.id = id;
+          Object.assign(img.style, {
+            position: 'absolute', inset: '0',
+            width: '100%', height: '100%',
+            objectFit: 'contain', display: 'block',
+            opacity: '0',
+            transition: `opacity ${FADE}ms cubic-bezier(0.4,0,0.2,1)`,
+            willChange: 'opacity',
+            zIndex: z,
+          });
+          canvas.appendChild(img);
+          return img;
+        }
+
+        let baseA = makeSlot('ms-base-a', 1), baseB = makeSlot('ms-base-b', 2);
+        let mepA  = makeSlot('ms-mep-a',  3), mepB  = makeSlot('ms-mep-b',  4);
+        let baseFront = baseA, baseBack = baseB;
+        let mepFront  = mepA,  mepBack  = mepB;
+
+        let baseOpacity = 0.2, mepOpacity = 0.8;
+        let activeBase = 0, activeMepIdx = 0;
+        let baseLocked = false, mepLocked = false;
+
+        const baseName   = document.getElementById('ms-base-name');
+        const mepName    = document.getElementById('ms-mep-name');
+        const badge      = document.getElementById('ms-badge-text');
+        const baseBtns   = Array.from(document.querySelectorAll('.ms-base-btn'));
+        const mepBtns    = Array.from(document.querySelectorAll('.ms-mep-btn'));
+        const sliderBase = document.getElementById('ms-slider-base');
+        const sliderMep  = document.getElementById('ms-slider-mep');
+        const basePct    = document.getElementById('ms-base-pct');
+        const mepPct     = document.getElementById('ms-mep-pct');
+
+        function updateBadge() {
+          badge.textContent = BASE[activeBase].short + ' + ' + MEP[activeMepIdx].short;
+        }
+
+        // Core crossfade: loads src into back, fades back↔front simultaneously
+        function crossfade(front, back, src, targetOpacity, onDone) {
+          // Snap back to invisible with no transition so it's ready to fade in
+          back.style.transition = 'none';
+          back.style.opacity    = '0';
+
+          function swap() {
+            requestAnimationFrame(() => {
+              back.style.transition  = `opacity ${FADE}ms cubic-bezier(0.4,0,0.2,1)`;
+              front.style.transition = `opacity ${FADE}ms cubic-bezier(0.4,0,0.2,1)`;
+              back.style.opacity     = String(targetOpacity);
+              front.style.opacity    = '0';
+            });
+            setTimeout(() => {
+              front.style.transition = 'none'; // reset for next use as back
+              if (onDone) onDone();
+            }, FADE + 60);
+          }
+
+          // If image is already cached (src matches and loaded), skip load wait
+          if (back.src && back.src.includes(src.replace(/^.*\//, '')) && back.complete && back.naturalWidth) {
+            swap();
+          } else {
+            back.onload  = swap;
+            back.onerror = swap;
+            back.src     = src;
+          }
+        }
+
+        // ── Initial load ─────────────────────────────────────────────────
+        baseA.onload = () => { baseA.style.transition = 'none'; baseA.style.opacity = String(baseOpacity); };
+        baseA.src = BASE[0].img;
+        mepA.onload  = () => { mepA.style.transition  = 'none'; mepA.style.opacity  = String(mepOpacity);  };
+        mepA.src  = MEP[0].img;
+
+        // Preload everything else silently so swaps are instant
+        [...BASE, ...MEP].slice(1).forEach(d => { new Image().src = d.img; });
+
+        // ── Sliders: update front slot live ──────────────────────────────
+        sliderBase.addEventListener('input', () => {
+          const val = Math.round(+sliderBase.value / 10) * 10;
+          sliderBase.value = val;
+          baseOpacity = val / 100;
+          baseFront.style.transition = 'opacity 120ms ease';
+          baseFront.style.opacity    = String(baseOpacity);
+          basePct.textContent = val + '%';
+        });
+        sliderMep.addEventListener('input', () => {
+          const val = Math.round(+sliderMep.value / 10) * 10;
+          sliderMep.value = val;
+          mepOpacity = val / 100;
+          mepFront.style.transition = 'opacity 120ms ease';
+          mepFront.style.opacity    = String(mepOpacity);
+          mepPct.textContent = val + '%';
+        });
+
+        // ── Base layer switch ─────────────────────────────────────────────
+        baseBtns.forEach((btn, i) => {
+          btn.addEventListener('click', () => {
+            if (i === activeBase || baseLocked) return;
+            baseBtns[activeBase].classList.remove('active');
+            activeBase = i; btn.classList.add('active');
+            baseName.textContent = BASE[i].name;
+            updateBadge();
+            baseLocked = true;
+            crossfade(baseFront, baseBack, BASE[i].img, baseOpacity, () => {
+              [baseFront, baseBack] = [baseBack, baseFront];
+              baseLocked = false;
+            });
+          });
+        });
+
+        // ── MEP switch ───────────────────────────────────────────────────
+        function switchMep(i, onDone) {
+          mepBtns[activeMepIdx].classList.remove('active');
+          for (let k = 0; k < MEP.length; k++) setFill(k, 0);
+          activeMepIdx = i;
+          mepBtns[i].classList.add('active');
+          mepName.textContent = MEP[i].name;
+          updateBadge();
+          mepLocked = true;
+          crossfade(mepFront, mepBack, MEP[i].img, mepOpacity, () => {
+            [mepFront, mepBack] = [mepBack, mepFront];
+            mepLocked = false;
+            if (onDone) onDone();
+          });
+        }
+
+        // ── Auto-cycle ───────────────────────────────────────────────────
+        const DWELL = 4000, PAUSE = 8000;
+        let paused = false, pauseTimer = null;
+        let fillStart = performance.now();
+        let rafId = null, sectionVisible = true;
+        let transitioning = false;
+
+        const autoBtn   = document.getElementById('ms-auto-btn');
+        const autoLabel = document.getElementById('ms-auto-label');
+        const iconPlay  = autoBtn.querySelector('.ms-auto-icon-play');
+        const iconPause = autoBtn.querySelector('.ms-auto-icon-pause');
+        let userPaused  = false;
+
+        function setAutoBtnState(playing) {
+          iconPlay.style.display  = playing ? 'none' : '';
+          iconPause.style.display = playing ? '' : 'none';
+          autoLabel.textContent   = playing ? 'PAUSE' : 'AUTO';
+          autoBtn.classList.toggle('ms-auto-btn--playing', playing);
+        }
+
+        autoBtn.addEventListener('click', () => {
+          userPaused = !userPaused;
+          paused     = userPaused;
+          setAutoBtnState(!userPaused);
+          if (!userPaused) fillStart = performance.now();
+        });
+
+        setAutoBtnState(true);
+
+        function setFill(idx, pct) {
+          const f = document.getElementById('ms-fill-' + idx);
+          if (f) f.style.width = pct + '%';
+        }
+
+        function tick(ts) {
+          if (!paused && sectionVisible && !transitioning) {
+            const pct = Math.min(((ts - fillStart) / DWELL) * 100, 100);
+            setFill(activeMepIdx, pct);
+            if (pct >= 100) {
+              transitioning = true;
+              switchMep((activeMepIdx + 1) % MEP.length, () => {
+                fillStart     = performance.now();
+                transitioning = false;
+              });
+            }
+          }
+          rafId = requestAnimationFrame(tick);
+        }
+
+        mepBtns.forEach((btn, i) => {
+          btn.addEventListener('click', () => {
+            if (i === activeMepIdx || mepLocked) return;
+            clearTimeout(pauseTimer);
+            if (!userPaused) {
+              paused = true;
+              setAutoBtnState(false);
+              pauseTimer = setTimeout(() => {
+                paused = false;
+                setAutoBtnState(true);
+                fillStart = performance.now();
+              }, PAUSE);
+            }
+            switchMep(i, () => { fillStart = performance.now(); });
+          });
+        });
+
+        updateBadge();
+        rafId = requestAnimationFrame(tick);
+
+        const section = document.getElementById('modelling');
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+              sectionVisible = e.isIntersecting;
+              if (!e.isIntersecting) {
+                if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+              } else if (!rafId) {
+                fillStart = performance.now();
+                rafId = requestAnimationFrame(tick);
+              }
+            });
+          }, { threshold: 0.05 }).observe(section);
+        }
+      })();
+      </script>
+
     </section>
 
     <!-- MEP -->
@@ -211,6 +560,88 @@
             <span class="section-label">Clash Detection</span>
             <h2 class="section-title">Navisworks Clash-Free BIM Model</h2>
             <p>A coordinated, federated model where Architectural, Structural, and MEP disciplines are tested, reviewed, and resolved using Autodesk Navisworks Manage, ensuring construction-ready, interference-free designs — essential for MEP-heavy UAE/GCC projects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIM PROCESS -->
+    <section class="section process-section" id="process">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">How We Work</span>
+          <h2 class="section-title">Our BIM Process</h2>
+          <p class="section-desc">A structured, milestone-driven workflow that takes your project from brief to a fully coordinated, construction-ready BIM deliverable.</p>
+        </div>
+        <div class="process-track">
+          <div class="process-line"></div>
+          <div class="process-steps">
+
+            <div class="process-step reveal-item">
+              <div class="process-node">
+                <span class="process-step-num">01</span>
+                <div class="process-icon">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h24M4 12h16M4 18h20M4 24h12"/></svg>
+                </div>
+              </div>
+              <div class="process-content">
+                <h4>Brief &amp; Scope</h4>
+                <p>We review your project documents, set BIM Execution Plan (BEP), agree on LOD requirements and deliverable schedule.</p>
+              </div>
+            </div>
+
+            <div class="process-step reveal-item">
+              <div class="process-node">
+                <span class="process-step-num">02</span>
+                <div class="process-icon">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="24" height="24" rx="1"/><path d="M4 12h24M12 12v16"/></svg>
+                </div>
+              </div>
+              <div class="process-content">
+                <h4>3D Modelling</h4>
+                <p>Discipline-specific models are built in Revit — Architectural, Structural, and MEP — to agreed LOD and parametric standards.</p>
+              </div>
+            </div>
+
+            <div class="process-step reveal-item">
+              <div class="process-node">
+                <span class="process-step-num">03</span>
+                <div class="process-icon">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><path d="M16 8v8l5 5"/></svg>
+                </div>
+              </div>
+              <div class="process-content">
+                <h4>Clash Detection</h4>
+                <p>Federated model reviewed in Navisworks. Hard, soft, and workflow clashes are identified, logged in BCF, and resolved with discipline leads.</p>
+              </div>
+            </div>
+
+            <div class="process-step reveal-item">
+              <div class="process-node">
+                <span class="process-step-num">04</span>
+                <div class="process-icon">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M28 8l-16 16-8-8"/></svg>
+                </div>
+              </div>
+              <div class="process-content">
+                <h4>Coordination</h4>
+                <p>MEP routing optimised, structural penetrations agreed, and all systems spatially coordinated across disciplines.</p>
+              </div>
+            </div>
+
+            <div class="process-step reveal-item">
+              <div class="process-node">
+                <span class="process-step-num">05</span>
+                <div class="process-icon">
+                  <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h16v4l-2 2H10L8 8V4z"/><path d="M8 28V10h16v18"/><path d="M12 14h8M12 18h8M12 22h5"/></svg>
+                </div>
+              </div>
+              <div class="process-content">
+                <h4>Deliverables</h4>
+                <p>Construction drawings, quantity schedules, 4D/5D simulations, and clash-free IFC/RVT models issued via ACC or agreed platform.</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -261,60 +692,132 @@
 
     <!-- PROJECTS -->
     <section class="section projects-section" id="projects">
+      <div class="hero-bg-grid"></div>
       <div class="container">
         <div class="section-header light">
           <span class="section-label">Portfolio</span>
           <h2 class="section-title">Our Ongoing Projects</h2>
           <p class="section-desc">Delivered BIM services in collaboration with leading consultants, contractors, and developers across the UAE and KSA.</p>
         </div>
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-img img-1"></div>
-            <div class="project-info">
-              <span class="project-tag">KSA</span>
-              <h4>Sindalah Island — NEOM</h4>
-              <p class="project-sub">BK Gulf · KSA</p>
+        <div class="projects-cta-block">
+          <div class="projects-cta-stats">
+            <div class="projects-cta-stat">
+              <span class="stat-num">6+</span>
+              <span class="stat-label">Ongoing Projects</span>
+            </div>
+            <div class="projects-cta-stat">
+              <span class="stat-num">UAE &amp; KSA</span>
+              <span class="stat-label">Regional Reach</span>
+            </div>
+            <div class="projects-cta-stat">
+              <span class="stat-num">360°</span>
+              <span class="stat-label">BIM Solutions</span>
             </div>
           </div>
-          <div class="project-card">
-            <div class="project-img img-2"></div>
-            <div class="project-info">
-              <span class="project-tag">KSA</span>
-              <h4>Amalaa Marine Institute — Red Sea</h4>
-              <p class="project-sub">BK Gulf · KSA</p>
+          <div class="projects-cta-divider"></div>
+          <p class="projects-cta-desc">From NEOM's Sindalah Island to Dubai's data centres and luxury developments — explore the full portfolio of BIM services we've delivered across the UAE and Kingdom of Saudi Arabia.</p>
+          <a href="projects.html" class="btn btn-outline projects-cta-btn">
+            View All Projects
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq-section" id="faq">
+      <div class="hero-bg-grid"></div>
+      <div class="container">
+        <div class="faq-layout">
+          <div class="faq-intro reveal-item">
+            <span class="section-label">FAQ</span>
+            <h2 class="section-title" style="color:#fff; font-size: clamp(1.8rem,3.5vw,2.8rem); font-weight:700; line-height:1.15; margin-bottom:20px;">Common Questions About BIM</h2>
+            <p>Whether you're new to BIM or evaluating consultants, here are answers to the questions we hear most from architects, contractors, and developers across the UAE and GCC.</p>
+            <div class="faq-cta-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              <p>Don't see your question? <strong><a href="#contact" style="color:var(--warm);text-decoration:none;">Send us a message</a></strong> and we'll respond within one business day.</p>
             </div>
           </div>
-          <div class="project-card">
-            <div class="project-img img-3"></div>
-            <div class="project-info">
-              <span class="project-tag">KSA</span>
-              <h4>Shura Island — Red Sea</h4>
-              <p class="project-sub">BK Gulf · KSA</p>
+          <div class="faq-list" id="faq-list">
+
+            <div class="faq-item reveal-item">
+              <button class="faq-question" aria-expanded="false">
+                <div class="faq-q-inner">
+                  <span class="faq-q-num">01</span>
+                  <span class="faq-q-text">What is LOD and which level do I need?</span>
+                </div>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>LOD (Level of Development) defines how much detail and information a BIM element contains — ranging from LOD 100 (conceptual massing) to LOD 500 (as-built, with real-world tolerances). Most UAE/GCC authorities and contractors work to LOD 300–400 for construction. We'll recommend the right LOD for your project phase during our initial brief.</p>
+              </div>
             </div>
-          </div>
-          <div class="project-card">
-            <div class="project-img img-4"></div>
-            <div class="project-info">
-              <span class="project-tag">UAE</span>
-              <h4>Khazna Data Centre</h4>
-              <p class="project-sub">BK Gulf · UAE</p>
+
+            <div class="faq-item reveal-item">
+              <button class="faq-question" aria-expanded="false">
+                <div class="faq-q-inner">
+                  <span class="faq-q-num">02</span>
+                  <span class="faq-q-text">Can you work with our existing 2D drawings or CAD files?</span>
+                </div>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>Yes — we routinely start from 2D AutoCAD drawings, PDFs, and even scanned as-built drawings. Our team traces, interprets, and builds accurate 3D Revit models from whatever documentation you have. For existing buildings, we also offer Scan to BIM using point cloud data.</p>
+              </div>
             </div>
-          </div>
-          <div class="project-card">
-            <div class="project-img img-5"></div>
-            <div class="project-info">
-              <span class="project-tag">UAE</span>
-              <h4>BVLGARI Light House</h4>
-              <p class="project-sub">BK Gulf · UAE</p>
+
+            <div class="faq-item reveal-item">
+              <button class="faq-question" aria-expanded="false">
+                <div class="faq-q-inner">
+                  <span class="faq-q-num">03</span>
+                  <span class="faq-q-text">How long does a typical MEP coordination project take?</span>
+                </div>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>Timeline depends on project size, complexity, and how quickly design information is available. A mid-size floor plate (2,000–4,000 m²) typically takes 3–6 weeks from information receipt to a clash-free federated model. We'll provide a detailed programme with milestones at the start of every engagement.</p>
+              </div>
             </div>
-          </div>
-          <div class="project-card">
-            <div class="project-img img-6"></div>
-            <div class="project-info">
-              <span class="project-tag">UAE</span>
-              <h4>Sweid One</h4>
-              <p class="project-sub">BK Gulf · UAE</p>
+
+            <div class="faq-item reveal-item">
+              <button class="faq-question" aria-expanded="false">
+                <div class="faq-q-inner">
+                  <span class="faq-q-num">04</span>
+                  <span class="faq-q-text">Do you comply with UAE and Saudi BIM mandates?</span>
+                </div>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>Yes. We work in alignment with Dubai Municipality BIM requirements, Abu Dhabi's Digital Twin Initiative, and Saudi Vision 2030 project standards. Our BIM Execution Plans (BEPs) are structured to meet authority submission requirements across all major UAE and KSA jurisdictions.</p>
+              </div>
             </div>
+
+            <div class="faq-item reveal-item">
+              <button class="faq-question" aria-expanded="false">
+                <div class="faq-q-inner">
+                  <span class="faq-q-num">05</span>
+                  <span class="faq-q-text">What file formats do you deliver?</span>
+                </div>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>We deliver native Revit (.RVT), federated Navisworks (.NWD/.NWF), IFC (Open BIM), DWG, and PDF. Model sharing is via Autodesk Construction Cloud (ACC/BIM 360) or your preferred CDE. We can also produce custom exports for Archibus, Maximo, or other FM platforms.</p>
+              </div>
+            </div>
+
+            <div class="faq-item reveal-item">
+              <button class="faq-question" aria-expanded="false">
+                <div class="faq-q-inner">
+                  <span class="faq-q-num">06</span>
+                  <span class="faq-q-text">How do you handle clash reports and resolutions?</span>
+                </div>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="faq-answer">
+                <p>All clashes are identified in Navisworks Manage and exported as BCF (BIM Collaboration Format) reports. We categorise by discipline, severity, and location — then host coordination meetings to resolve each item. A clash matrix is maintained throughout the project until all critical clashes reach zero.</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -343,7 +846,7 @@
                 </div>
                 <div>
                   <p class="contact-label">Email</p>
-                  <a href="/cdn-cgi/l/email-protection#066f68606946646f6b6772746f7e286763"><span class="__cf_email__" data-cfemail="8ae3e4ece5cae8e3e7ebfef8e3f2a4ebef">[email&#160;protected]</span></a>
+                  <a href="/cdn-cgi/l/email-protection#b7ded9d1d8f7d5dedad6c3c5decf99d6d2"><span class="__cf_email__" data-cfemail="8be2e5ede4cbe9e2e6eafff9e2f3a5eaee">[email&#160;protected]</span></a>
                 </div>
               </div>
               <div class="contact-item">
@@ -411,82 +914,56 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <div class="logo footer-logo">
-              <span class="logo-bim">BIM</span><span class="logo-atrix">ATRIX</span>
-              <span class="logo-sub">TECHNICAL SERVICES LLC</span>
-            </div>
-            <p>One Model. One Vision. Transforming the built environment through digital innovation across the UAE and GCC.</p>
-            <p class="footer-tagline">www.bimatrix.ae</p>
-          </div>
-          <div class="footer-col">
-            <h5>Services</h5>
-            <ul>
-              <li><a href="#services">Bid & Estimation</a></li>
-              <li><a href="#services">Pre-Construction BIM</a></li>
-              <li><a href="#services">BIM Operations</a></li>
-              <li><a href="#modelling">3D Model Development</a></li>
-              <li><a href="#mep">MEP Coordination</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h5>Company</h5>
-            <ul>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#why-us">Why Choose Us</a></li>
-              <li><a href="#benefits">Benefits of BIM</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h5>Contact</h5>
-            <ul>
-              <li><a href="tel:+971551122420">+971 55 1122420</a></li>
-              <li><a href="/cdn-cgi/l/email-protection#dab3b4bcb59ab8b3b7bbaea8b3a2f4bbbf"><span class="__cf_email__" data-cfemail="5e373038311e3c37333f2a2c3726703f3b">[email&#160;protected]</span></a></li>
-              <li>Office-705, Grand Al Attar Building</li>
-              <li>Bank Street, Bur Dubai, UAE</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer
-    <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; 2026 BIMATRIX Technical Services LLC. All rights reserved.</p>
-        <p>Dubai, UAE &mdash; www.bimatrix.ae</p>
-      </div>
-    </div>
-  </footer>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="scripts.js"></script>
 
-  <!-- FLOATING DARK MODE TOGGLE -->
-  <div class="theme-toggle-wrap" id="theme-toggle" role="button" tabindex="0" aria-label="Toggle dark mode">
-    <div class="toggle-thumb">
-      <!-- SUN: light mode — starburst design -->
-      <svg class="icon-light" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="3" fill="#ffffff"/>
-        <polygon points="12,2 13.2,5.5 11.8,5.5" fill="#ffffff"/>
-        <polygon points="12,22 13.2,18.5 11.8,18.5" fill="#ffffff"/>
-        <polygon points="2,12 5.5,10.8 5.5,13.2" fill="#ffffff"/>
-        <polygon points="22,12 18.5,10.8 18.5,13.2" fill="#ffffff"/>
-        <polygon points="4.93,4.93 7.3,7.8 5.5,7.8" fill="#ffffff"/>
-        <polygon points="19.07,4.93 18.5,7.8 16.7,7.8" fill="#ffffff"/>
-        <polygon points="4.93,19.07 5.5,16.2 7.3,16.2" fill="#ffffff"/>
-        <polygon points="19.07,19.07 16.7,16.2 18.5,16.2" fill="#ffffff"/>
-      </svg>
-      <!-- MOON: dark mode -->
-      <svg class="icon-dark" viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" fill="#1d2846" stroke="none"/>
-      </svg>
-    </div>
-  </div>
+  <script>
+  (function(){
+    const items = document.querySelectorAll('.reveal-item, .service-card, .why-card, .benefit-item, .mvv-card, .process-step');
+    if (!('IntersectionObserver' in window)) { items.forEach(el => el.classList.add('revealed')); return; }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          const siblings = Array.from(e.target.parentElement.children);
+          const delay = siblings.indexOf(e.target) * 80;
+          setTimeout(() => e.target.classList.add('revealed'), delay);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(el => obs.observe(el));
+  })();
 
-    <script src="scripts.js"></script>
+  (function(){
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.nav-list a[href^="#"]');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(a => {
+            a.classList.toggle('nav-active', a.getAttribute('href') === '#' + e.target.id);
+          });
+        }
+      });
+    }, { threshold: 0.35 });
+    sections.forEach(s => obs.observe(s));
+  })();
+  </script>
+
+  <script>
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  </script>
 </body>
 </html>

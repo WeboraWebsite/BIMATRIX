@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — BIMATRIX Technical Services LLC</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>(function(){var t=localStorage.getItem('bimatrix-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
+</head>
+<body>
+
+  <!-- Header, footer, and floating controls are injected by components.js -->
+  <script src="components.js"></script>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="projects-hero">
+      <div class="hero-bg-grid"></div>
+
+      <div class="hero-content">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="bc-sep">&#9656;</span>
+          <span class="bc-current">Projects</span>
+        </nav>
+
+        <p class="hero-eyebrow">Portfolio — UAE &amp; KSA</p>
+        <h1 class="hero-title">Our Ongoing<br /><em>Projects.</em></h1>
+        <p class="hero-desc">BIM services delivered in collaboration with leading consultants, contractors, and developers across the UAE and Kingdom of Saudi Arabia.</p>
+
+        <div class="hero-actions">
+          <a href="index.html#contact" class="btn btn-primary">Start a Project</a>
+          <a href="index.html#services" class="btn btn-outline">Our Services</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">6+</span>
+            <span class="stat-label">Ongoing Projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">UAE &amp; KSA</span>
+            <span class="stat-label">Regional Reach</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">360°</span>
+            <span class="stat-label">BIM Solutions</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hex-cluster">
+          <div class="hex hex-1"></div>
+          <div class="hex hex-2"></div>
+          <div class="hex hex-3"></div>
+          <div class="hex hex-4"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS GRID -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-img img-1"></div>
+            <div class="project-info">
+              <span class="project-tag">KSA</span>
+              <h4>Sindalah Island — NEOM</h4>
+              <p class="project-sub">BK Gulf · KSA</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img img-2"></div>
+            <div class="project-info">
+              <span class="project-tag">KSA</span>
+              <h4>Amalaa Marine Institute — Red Sea</h4>
+              <p class="project-sub">BK Gulf · KSA</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img img-3"></div>
+            <div class="project-info">
+              <span class="project-tag">KSA</span>
+              <h4>Shura Island — Red Sea</h4>
+              <p class="project-sub">BK Gulf · KSA</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img img-4"></div>
+            <div class="project-info">
+              <span class="project-tag">UAE</span>
+              <h4>Khazna Data Centre</h4>
+              <p class="project-sub">BK Gulf · UAE</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img img-5"></div>
+            <div class="project-info">
+              <span class="project-tag">UAE</span>
+              <h4>BVLGARI Light House</h4>
+              <p class="project-sub">BK Gulf · UAE</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-img img-6"></div>
+            <div class="project-info">
+              <span class="project-tag">UAE</span>
+              <h4>Sweid One</h4>
+              <p class="project-sub">BK Gulf · UAE</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="scripts.js"></script>
+
+  <script>
+  (function(){
+    const items = document.querySelectorAll('.project-card');
+    if (!('IntersectionObserver' in window)) { items.forEach(el => el.classList.add('revealed')); return; }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          const siblings = Array.from(e.target.parentElement.children);
+          const delay = siblings.indexOf(e.target) * 80;
+          setTimeout(() => e.target.classList.add('revealed'), delay);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(el => obs.observe(el));
+  })();
+  </script>
+
+</body>
+</html>

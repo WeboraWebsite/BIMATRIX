@@ -7,10 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── DARK MODE ──────────────────────────────
   const themeToggle = document.getElementById('theme-toggle');
 
-  // Always start on light mode for new users
-  const savedTheme = localStorage.getItem('bimatrix-theme') || 'light';
-  document.documentElement.setAttribute('data-theme', savedTheme);
-
   function toggleTheme() {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     const next = isDark ? 'light' : 'dark';
@@ -18,38 +14,36 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('bimatrix-theme', next);
   }
 
-  themeToggle.addEventListener('click', toggleTheme);
-
-  // Keyboard accessibility
-  themeToggle.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggleTheme();
-    }
-  });
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+    themeToggle.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleTheme();
+      }
+    });
+  }
 
   // ── STICKY HEADER ──────────────────────────
   const header = document.getElementById('site-header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
+  if (header) {
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+  }
 
   // ── HAMBURGER MENU ─────────────────────────
   const hamburger = document.getElementById('hamburger');
   const navMain   = document.getElementById('nav-main');
 
-  hamburger.addEventListener('click', () => {
+  if (hamburger && navMain) hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     navMain.classList.toggle('open');
     document.body.style.overflow = navMain.classList.contains('open') ? 'hidden' : '';
   });
 
   // Close nav when a link is clicked (mobile)
-  navMain.querySelectorAll('a').forEach(link => {
+  if (navMain) navMain.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
       navMain.classList.remove('open');
@@ -69,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── SMOOTH SCROLL (backup for older browsers) ─
+  // ── SMOOTH SCROLL ─
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       const id = anchor.getAttribute('href');
@@ -80,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 72;
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
-        // Close mobile nav
         hamburger.classList.remove('open');
         navMain.classList.remove('open');
         document.body.style.overflow = '';
@@ -98,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        // Stagger siblings inside the same parent grid
         const siblings = Array.from(entry.target.parentElement.querySelectorAll('.fade-in'));
         const idx = siblings.indexOf(entry.target);
         setTimeout(() => {
