@@ -21,35 +21,31 @@
         </div>
       </a>
 
-      <nav class="nav-main" id="nav-main">
-        <ul class="nav-list">
-          <li><a href="${root}index.html#about">About</a></li>
-          <li class="has-dropdown">
-            <a href="${root}index.html#services" class="nav-services-toggle">
-              <span class="nav-services-label">Services</span>
-              <span class="chevron">&#8964;</span>
-            </a>
-            <ul class="dropdown">
-              <li><a href="${root}index.html#services">BIM Services</a></li>
-              <li><a href="${root}index.html#modelling">3D Model Development</a></li>
-              <li><a href="${root}index.html#mep">MEP Coordination</a></li>
-              <li><a href="${root}index.html#benefits">Benefits of BIM</a></li>
-              <li><a href="${root}index.html#process">BIM Process</a></li>
-              <li><a href="${root}index.html#faq">FAQ</a></li>
-            </ul>
-          </li>
-          <li><a href="${root}index.html#process">Process</a></li>
-          <li><a href="${root}index.html#why-us">Why Us</a></li>
-          <li><a href="${root}projects.html"${isProjects ? ' class="nav-page-active"' : ''}>Projects</a></li>
-          <li><a href="${root}index.html#contact">Contact</a></li>
-        </ul>
+      <div class="desktop-nav" id="desktop-nav">
+        <a href="${root}index.html#about" class="nav-link">About</a>
+        <a href="${root}index.html#services" class="nav-link">Services</a>
+        <a href="${root}index.html#process" class="nav-link">Process</a>
+        <a href="${root}index.html#why-us" class="nav-link">Why Us</a>
+        <a href="${root}projects.html" class="nav-link${isProjects ? ' nav-page-active' : ''}">Projects</a>
+        <a href="${root}index.html#contact" class="nav-link">Contact</a>
         <a href="${root}index.html#contact" class="btn btn-primary nav-cta">Get in Touch</a>
-      </nav>
+      </div>
 
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
     </div>
+
+    <!-- Mobile nav sits outside header-inner so it's not clipped -->
+    <nav class="nav-main" id="nav-main">
+      <a href="${root}index.html#about" class="nav-link">About</a>
+      <a href="${root}index.html#services" class="nav-link">Services</a>
+      <a href="${root}index.html#process" class="nav-link">Process</a>
+      <a href="${root}index.html#why-us" class="nav-link">Why Us</a>
+      <a href="${root}projects.html" class="nav-link">Projects</a>
+      <a href="${root}index.html#contact" class="nav-link">Contact</a>
+      <a href="${root}index.html#contact" class="btn btn-primary nav-cta">Get in Touch</a>
+    </nav>
   </header>`;
 
   // ── FOOTER ───────────────────────────────────
@@ -125,7 +121,7 @@
   <div class="floating-controls">
     <div class="theme-toggle-wrap" id="theme-toggle" role="button" tabindex="0" aria-label="Toggle dark mode">
       <div class="toggle-thumb">
-        <svg class="icon-light" viewBox="0 0 24 24" width="24" height="24">
+        <svg class="icon-light icon-in-thumb" viewBox="0 0 24 24" width="24" height="24">
           <circle cx="12" cy="12" r="3" fill="#ffffff"/>
           <polygon points="12,2 13.2,5.5 11.8,5.5" fill="#ffffff"/>
           <polygon points="12,22 13.2,18.5 11.8,18.5" fill="#ffffff"/>
@@ -136,16 +132,30 @@
           <polygon points="4.93,19.07 5.5,16.2 7.3,16.2" fill="#ffffff"/>
           <polygon points="19.07,19.07 16.7,16.2 18.5,16.2" fill="#ffffff"/>
         </svg>
-        <svg class="icon-dark" viewBox="0 0 24 24" width="24" height="24">
+        <svg class="icon-dark icon-in-thumb" viewBox="0 0 24 24" width="24" height="24">
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="#ffffff"/>
         </svg>
       </div>
+      <svg class="icon-light icon-mobile" viewBox="0 0 24 24" width="20" height="20">
+        <circle cx="12" cy="12" r="3" fill="currentColor"/>
+        <polygon points="12,2 13.2,5.5 11.8,5.5" fill="currentColor"/>
+        <polygon points="12,22 13.2,18.5 11.8,18.5" fill="currentColor"/>
+        <polygon points="2,12 5.5,10.8 5.5,13.2" fill="currentColor"/>
+        <polygon points="22,12 18.5,10.8 18.5,13.2" fill="currentColor"/>
+        <polygon points="4.93,4.93 7.3,7.8 5.5,7.8" fill="currentColor"/>
+        <polygon points="19.07,4.93 18.5,7.8 16.7,7.8" fill="currentColor"/>
+        <polygon points="4.93,19.07 5.5,16.2 7.3,16.2" fill="currentColor"/>
+        <polygon points="19.07,19.07 16.7,16.2 18.5,16.2" fill="currentColor"/>
+      </svg>
+      <svg class="icon-dark icon-mobile" viewBox="0 0 24 24" width="20" height="20">
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" fill="currentColor"/>
+      </svg>
     </div>
-    <a href="${root}index.html" class="home-btn-wrap" aria-label="Go to home">
+    <button class="home-btn-wrap" id="home-btn" aria-label="Go to home">
       <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M12 2L2 12h3v9h5v-5h4v5h5v-9h3L12 2z"/>
       </svg>
-    </a>
+    </button>
   </div>`;
 
   // ── Inject into DOM ───────────────────────────
@@ -157,6 +167,7 @@
   function injectAfterMain() {
     document.body.insertAdjacentHTML('beforeend', footerHTML);
     document.body.insertAdjacentHTML('beforeend', floatingHTML);
+    document.body.insertAdjacentHTML('beforeend', '<div class="nav-overlay" id="nav-overlay"></div>');
   }
 
   if (document.readyState === 'loading') {
