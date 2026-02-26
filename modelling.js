@@ -152,8 +152,8 @@
   let userPaused  = false;
 
   function setAutoBtnState(playing) {
-    iconPlay.style.display  = playing ? 'none' : '';
-    iconPause.style.display = playing ? '' : 'none';
+    iconPlay.style.display  = playing ? 'none' : 'flex';
+    iconPause.style.display = playing ? 'flex' : 'none';
     autoLabel.textContent   = playing ? 'PAUSE' : 'AUTO';
     autoBtn.classList.toggle('ms-auto-btn--playing', playing);
   }

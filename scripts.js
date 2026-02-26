@@ -125,13 +125,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   fadeEls.forEach(el => observer.observe(el));
 
-  // ── CONTACT FORM ───────────────────────────
-  window.handleForm = (e) => {
+  // ── CONTACT FORM (Web3Forms) ────────────────
+  window.handleForm = async (e) => {
     e.preventDefault();
+    const form      = e.target;
+    const submitBtn = document.getElementById('form-submit-btn');
     const successEl = document.getElementById('form-success');
-    successEl.style.display = 'block';
-    e.target.querySelectorAll('input, select, textarea').forEach(field => field.value = '');
-    setTimeout(() => { successEl.style.display = 'none'; }, 5000);
+    const errorEl   = document.getElementById('form-error');
+
+    successEl.style.display = 'none';
+    errorEl.style.display   = 'none';
+    submitBtn.disabled      = true;
+    submitBtn.textContent   = 'Sending…';
+
+    try {
+      const data = new FormData(form);
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      });
+      const json = await res.json();
+
+      if (json.success) {
+        successEl.style.display = 'block';
+        form.querySelectorAll('input:not([type=hidden]), select, textarea').forEach(f => f.value = '');
+        setTimeout(() => { successEl.style.display = 'none'; }, 6000);
+      } else {
+        errorEl.style.display = 'block';
+        setTimeout(() => { errorEl.style.display = 'none'; }, 6000);
+      }
+    } catch {
+      errorEl.style.display = 'block';
+      setTimeout(() => { errorEl.style.display = 'none'; }, 6000);
+    } finally {
+      submitBtn.disabled    = false;
+      submitBtn.textContent = 'Send Message';
+    }
   };
 
   // ── ACTIVE NAV LINK ON SCROLL ──────────────
