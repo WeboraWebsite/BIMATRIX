@@ -159,6 +159,47 @@
     </button>
   </div>`;
 
+  // ── In-page smooth scroll on home without changing URL ─────────────────────
+  function setupInPageScroll() {
+    if (isProjects) return; // only keep URL clean on the main page
+
+    function scrollToId(id) {
+      const target = document.getElementById(id);
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function cleanUrl() {
+      var cleanPath = window.location.pathname.replace(/index\.html$/, '');
+      window.history.replaceState(null, '', cleanPath || '/');
+    }
+
+    const links = document.querySelectorAll(
+      'a[href^="index.html#"], a[href^="#"]:not([href="#"])'
+    );
+
+    links.forEach(link => {
+      const href = link.getAttribute('href');
+      const hashIndex = href.indexOf('#');
+      if (hashIndex === -1) return;
+      const id = href.slice(hashIndex + 1);
+      if (!id) return;
+
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        scrollToId(id);
+        cleanUrl();
+      });
+    });
+
+    // Handle direct visits like /index.html#contact
+    if (window.location.hash && window.location.hash.length > 1) {
+      const id = window.location.hash.slice(1);
+      scrollToId(id);
+      cleanUrl();
+    }
+  }
+
   // ── Inject into DOM ───────────────────────────
   // Header: insert immediately so it renders before any content
   document.body.insertAdjacentHTML('afterbegin', headerHTML);
@@ -169,6 +210,7 @@
     document.body.insertAdjacentHTML('beforeend', footerHTML);
     document.body.insertAdjacentHTML('beforeend', floatingHTML);
     document.body.insertAdjacentHTML('beforeend', '<div class="nav-overlay" id="nav-overlay"></div>');
+    setupInPageScroll();
   }
 
   if (document.readyState === 'loading') {
