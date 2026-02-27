@@ -29,6 +29,8 @@
     img.id = id;
     img.className = 'ms-canvas-slot';
     img.style.zIndex = z;
+    img.alt = '';
+    img.setAttribute('aria-hidden', 'true');
     canvas.appendChild(img);
     return img;
   }
