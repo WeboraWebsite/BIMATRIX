@@ -3,12 +3,15 @@
 // Shared header, footer, and floating controls
 // ============================================
 
+// Prevent browser from restoring scroll position on reload
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
 (function () {
 
   // ── Detect current page ──────────────────────
   const path = window.location.pathname || '';
-  const isProjects = /\/projects(\/|$)/.test(path) || path.endsWith('/projects.html');
-  const root = /\/projects(\/|$)/.test(path) ? '../' : ''; // supports /projects/ subfolder clean URL
+  const isProjects = path.endsWith('/projects.html') || path.endsWith('projects.html');
+  const root = '';
 
   // ── HEADER ──────────────────────────────────
   const headerHTML = `
@@ -27,7 +30,7 @@
         <a href="${root}index.html#services" class="nav-link">Services</a>
         <a href="${root}index.html#process" class="nav-link">Process</a>
         <a href="${root}index.html#why-us" class="nav-link">Why Us</a>
-        <a href="${root}projects/" class="nav-link${isProjects ? ' nav-page-active' : ''}">Projects</a>
+        <a href="${root}projects.html" class="nav-link${isProjects ? ' nav-page-active' : ''}">Projects</a>
         <a href="${root}index.html#contact" class="nav-link">Contact</a>
         <a href="${root}index.html#contact" class="btn btn-primary nav-cta">Get in Touch</a>
       </div>
@@ -43,7 +46,7 @@
       <a href="${root}index.html#services" class="nav-link">Services</a>
       <a href="${root}index.html#process" class="nav-link">Process</a>
       <a href="${root}index.html#why-us" class="nav-link">Why Us</a>
-      <a href="${root}projects/" class="nav-link">Projects</a>
+      <a href="${root}projects.html" class="nav-link">Projects</a>
       <a href="${root}index.html#contact" class="nav-link">Contact</a>
       <a href="${root}index.html#contact" class="btn btn-primary nav-cta">Get in Touch</a>
     </nav>
@@ -91,7 +94,7 @@
             <h5>Company</h5>
             <ul>
               <li><a href="${root}index.html#about">About Us</a></li>
-              <li><a href="${root}projects/">Projects</a></li>
+              <li><a href="${root}projects.html">Projects</a></li>
               <li><a href="${root}index.html#why-us">Why Choose Us</a></li>
               <li><a href="${root}index.html#benefits">Benefits of BIM</a></li>
               <li><a href="${root}index.html#contact">Contact</a></li>
@@ -195,7 +198,9 @@
     // Handle direct visits like /index.html#contact
     if (window.location.hash && window.location.hash.length > 1) {
       const id = window.location.hash.slice(1);
-      scrollToId(id);
+      setTimeout(() => { scrollToId(id); cleanUrl(); }, 80);
+    } else {
+      window.scrollTo(0, 0);
       cleanUrl();
     }
   }

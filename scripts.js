@@ -4,6 +4,86 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ── HERO SLIDESHOW ─────────────────────────
+  (function () {
+    const slides = Array.from(document.querySelectorAll('.hero-slide'));
+    const dotsContainer = document.getElementById('hero-slide-dots');
+    if (!slides.length) return;
+
+    let current = 0, timer = null;
+    const DWELL = 4000;
+
+    // Build dots
+    const dots = slides.map((_, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'hero-dot' + (i === 0 ? ' active' : '');
+      btn.setAttribute('aria-label', 'Slide ' + (i + 1));
+      btn.addEventListener('click', () => goTo(i));
+      if (dotsContainer) dotsContainer.appendChild(btn);
+      return btn;
+    });
+
+    function showSlide(idx) {
+      slides.forEach((s, i) => {
+        if (i === idx) {
+          // Restart the Ken Burns animation cleanly
+          s.style.animation = 'none';
+          s.offsetHeight; // force reflow
+          s.style.animation = '';
+          s.classList.add('hero-slide--active');
+        } else {
+          s.classList.remove('hero-slide--active');
+        }
+      });
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }
+
+    function goTo(next) {
+      if (next === current) return;
+      current = next;
+      showSlide(current);
+    }
+
+    function advance() { goTo((current + 1) % slides.length); }
+
+    showSlide(0);
+    timer = setInterval(advance, DWELL);
+  })();
+
+  // ── HERO TYPEWRITER ────────────────────────
+  (function () {
+    const el     = document.getElementById('hero-typewriter');
+    const cursor = document.querySelector('.hero-typewriter-cursor');
+    if (!el) return;
+    const text = 'An emerging BIM consultancy and technology solutions provider dedicated to transforming the built environment across the UAE and GCC.';
+    let i = 0;
+    setTimeout(function type() {
+      el.textContent = text.slice(0, i++);
+      if (i <= text.length) {
+        setTimeout(type, 28);
+      } else {
+        setTimeout(() => { if (cursor) cursor.style.opacity = '0'; }, 1200);
+      }
+    }, 600);
+  })();
+
+  // ── PROJECTS TYPEWRITER ────────────────────
+  (function () {
+    const el     = document.getElementById('projects-typewriter');
+    const cursor = el ? el.closest('p').querySelector('.hero-typewriter-cursor') : null;
+    if (!el) return;
+    const text = 'BIM services delivered in collaboration with leading consultants, contractors, and developers across the UAE and Kingdom of Saudi Arabia.';
+    let i = 0;
+    setTimeout(function type() {
+      el.textContent = text.slice(0, i++);
+      if (i <= text.length) {
+        setTimeout(type, 28);
+      } else {
+        setTimeout(() => { if (cursor) cursor.style.opacity = '0'; }, 1200);
+      }
+    }, 600);
+  })();
+
   // ── DARK MODE ──────────────────────────────
   const themeToggle = document.getElementById('theme-toggle');
 
@@ -103,9 +183,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ── ABOUT SECTION ENTRANCE ────────────────
+  (function () {
+    const aboutText  = document.querySelector('.about-text');
+    const aboutCards = document.querySelector('.about-cards');
+    if (!aboutText && !aboutCards) return;
+    if (!('IntersectionObserver' in window)) {
+      if (aboutText)  aboutText.classList.add('visible');
+      if (aboutCards) aboutCards.classList.add('visible');
+      return;
+    }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -60px 0px' });
+    if (aboutText)  obs.observe(aboutText);
+    if (aboutCards) obs.observe(aboutCards);
+  })();
+
   // ── SCROLL FADE-IN ANIMATIONS ──────────────
   const fadeEls = document.querySelectorAll(
-    '.service-card, .mvv-card, .benefit-item, .why-card, .project-card, .model-item, .mep-block, .about-text, .about-cards, .section-header, .contact-info, .contact-form'
+    '.service-card, .benefit-item, .why-card, .project-card, .model-item, .mep-block, .section-header, .contact-info, .contact-form'
   );
 
   fadeEls.forEach(el => el.classList.add('fade-in'));
@@ -188,20 +290,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── SCROLL REVEAL (index page) ─────────────────────────────────────────
   (function () {
-    const items = document.querySelectorAll('.reveal-item, .service-card, .why-card, .benefit-item, .mvv-card, .process-step');
+    const items = document.querySelectorAll('.reveal-item, .service-card, .why-card, .benefit-item, .process-step');
     if (!items.length) return;
     if (!('IntersectionObserver' in window)) { items.forEach(el => el.classList.add('revealed')); return; }
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
           const siblings = Array.from(e.target.parentElement.children);
-          const delay = siblings.indexOf(e.target) * 80;
+          const idx = siblings.indexOf(e.target);
+          const delay = Math.min(idx * 50, 200);
           setTimeout(() => e.target.classList.add('revealed'), delay);
           obs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    items.forEach(el => obs.observe(el));
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+    // Wait for first paint before observing so already-visible items
+    // don't show a blank flash before the observer fires
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        items.forEach(el => obs.observe(el));
+      });
+    });
   })();
 
   // ── NAV ACTIVE ON SCROLL (index page) ──────────────────────────────────

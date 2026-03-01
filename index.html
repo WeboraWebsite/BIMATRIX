@@ -17,36 +17,62 @@
 
     <!-- HERO -->
     <section class="hero" id="home">
+      <div class="hero-slideshow" id="hero-slideshow" aria-hidden="true">
+        <div class="hero-slide hero-slide--active" style="background-image:url('images/slide_1.png')"></div>
+        <div class="hero-slide" style="background-image:url('images/slide_2.png')"></div>
+        <div class="hero-slide" style="background-image:url('images/slide_3.png')"></div>
+        <div class="hero-slide" style="background-image:url('images/slide_4.png')"></div>
+        <div class="hero-slide" style="background-image:url('images/slide_5.png')"></div>
+        <div class="hero-slide" style="background-image:url('images/slide_6.png')"></div>
+      </div>
+      <div class="hero-slide-dots" id="hero-slide-dots"></div>
       <div class="hero-bg-grid"></div>
       <div class="hero-content">
-        <p class="hero-eyebrow">Building Information Modelling</p>
-        <h1 class="hero-title">One Model.<br /><em>One Vision.</em></h1>
-        <p class="hero-desc">An emerging BIM consultancy and technology solutions provider dedicated to transforming the built environment across the UAE and GCC.</p>
-        <div class="hero-actions">
-          <a href="#services" class="btn btn-primary">Explore Services</a>
-          <a href="#contact" class="btn btn-outline">Contact Us</a>
+        <div class="hero-left">
+          <p class="hero-eyebrow">Building Information Modelling</p>
+          <h1 class="hero-title hero-title-split">
+            <span class="hero-title-one">ONE</span>
+            <span class="hero-title-right">
+              <span class="hero-title-word">Model.</span>
+              <span class="hero-title-word">Vision.</span>
+            </span>
+          </h1>
+          <p class="hero-desc"><span id="hero-typewriter"></span><span class="hero-typewriter-cursor">|</span></p>
+          <div class="hero-actions">
+            <a href="#services" class="btn btn-primary">Explore Services</a>
+            <a href="#contact" class="btn btn-outline">Contact Us</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-num">6+</span>
+              <span class="stat-label">Ongoing Projects</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">UAE &amp; GCC</span>
+              <span class="stat-label">Regional Reach</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">360°</span>
+              <span class="stat-label">BIM Solutions</span>
+            </div>
+          </div>
         </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-num">6+</span>
-            <span class="stat-label">Ongoing Projects</span>
+        <div class="hero-right">
+          <div class="hero-slogan">
+            <div class="hero-slogan-line">Where</div>
+            <div class="hero-slogan-line hero-slogan-accent">Data</div>
+            <div class="hero-slogan-line">Meets</div>
+            <div class="hero-slogan-line hero-slogan-accent">Design.</div>
+            <div class="hero-slogan-divider"></div>
+            <p class="hero-slogan-sub">Precision BIM engineering for the UAE &amp; GCC's most ambitious projects — from first model to final handover.</p>
+            <div class="hero-slogan-tags">
+              <span>Revit</span>
+              <span>Navisworks</span>
+              <span>MEP Coordination</span>
+              <span>Clash Detection</span>
+              <span>4D/5D BIM</span>
+            </div>
           </div>
-          <div class="stat">
-            <span class="stat-num">UAE &amp; GCC</span>
-            <span class="stat-label">Regional Reach</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num">360°</span>
-            <span class="stat-label">BIM Solutions</span>
-          </div>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hex-cluster">
-          <div class="hex hex-1"></div>
-          <div class="hex hex-2"></div>
-          <div class="hex hex-3"></div>
-          <div class="hex hex-4"></div>
         </div>
       </div>
     </section>
@@ -551,7 +577,7 @@
                 </div>
                 <div>
                   <p class="contact-label">Email</p>
-                  <a href="mailto:info@bimatrix.ae">info@bimatrix.ae</a>
+                  <a href="/cdn-cgi/l/email-protection#c9a0a7afa689aba0a4a8bdbba0b1e7a8ac"><span class="__cf_email__" data-cfemail="543d3a323b14363d393520263d2c7a3531">[email&#160;protected]</span></a>
                 </div>
               </div>
               <div class="contact-item">
@@ -612,7 +638,7 @@
             <div class="form-error" id="form-error">Something went wrong. Please try again or email us directly.</div>
           </form>
         </div>
-      </div>
+          </div>
     </section>
 
   </main>
