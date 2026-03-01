@@ -10,8 +10,8 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
   // ── Detect current page ──────────────────────
   const path = window.location.pathname || '';
-  const isProjects = path.endsWith('/projects.html') || path.endsWith('projects.html');
-  const root = '';
+  const isProjects = /\/projects(\/|$)/.test(path) || path.endsWith('/projects.html') || path.endsWith('projects.html');
+  const root = /\/projects(\/|$)/.test(path) ? '../' : '';
 
   // ── HEADER ──────────────────────────────────
   const headerHTML = `
@@ -30,7 +30,7 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
         <a href="${root}index.html#services" class="nav-link">Services</a>
         <a href="${root}index.html#process" class="nav-link">Process</a>
         <a href="${root}index.html#why-us" class="nav-link">Why Us</a>
-        <a href="${root}projects.html" class="nav-link${isProjects ? ' nav-page-active' : ''}">Projects</a>
+        <a href="${root}projects/" class="nav-link${isProjects ? ' nav-page-active' : ''}">Projects</a>
         <a href="${root}index.html#contact" class="nav-link">Contact</a>
         <a href="${root}index.html#contact" class="btn btn-primary nav-cta">Get in Touch</a>
       </div>
@@ -46,7 +46,7 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
       <a href="${root}index.html#services" class="nav-link">Services</a>
       <a href="${root}index.html#process" class="nav-link">Process</a>
       <a href="${root}index.html#why-us" class="nav-link">Why Us</a>
-      <a href="${root}projects.html" class="nav-link">Projects</a>
+      <a href="${root}projects/" class="nav-link">Projects</a>
       <a href="${root}index.html#contact" class="nav-link">Contact</a>
       <a href="${root}index.html#contact" class="btn btn-primary nav-cta">Get in Touch</a>
     </nav>
@@ -94,7 +94,7 @@ if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
             <h5>Company</h5>
             <ul>
               <li><a href="${root}index.html#about">About Us</a></li>
-              <li><a href="${root}projects.html">Projects</a></li>
+              <li><a href="${root}projects/">Projects</a></li>
               <li><a href="${root}index.html#why-us">Why Choose Us</a></li>
               <li><a href="${root}index.html#benefits">Benefits of BIM</a></li>
               <li><a href="${root}index.html#contact">Contact</a></li>
